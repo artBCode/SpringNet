@@ -1,0 +1,21 @@
+
+Q: Which is the format of the insert-network payload? Can it be any JSON containing the "networks" : [...] as children?
+A: Yep. Only "networks" : [...] need to have this format.
+
+Q: Which is the data model behind the example?
+A: Unclear
+
+Q: What needs to be stored in the db? Is it only the info needed to provide the Get Networks by IP data?
+E.g."192.168.0.0/24" -> "192.168.0.2"
+A: The app stores networks (e.g. "192.168.0.0/24") and IPs (e.g. "192.168.0.2") in the db.
+
+Q: Is it possible that the the same network appears in more than one place in the same JSON? (e.g. "192.168.0.0/24" in one of more sub-trees)
+A: The app aggregates all the IPs from the same network.
+
+Q: If an IP does not belong to a network should it be ignored? e.g. "255.255.255.0" in "192.168.0.0/24"
+A: Yep, it is discarded.
+
+Q: Which is the output of "Get Networks by IP"?
+A: e.g. ["192.168.0.0/24", "192.168.0.0/20", "192.168.0.0/16"].
+
+
