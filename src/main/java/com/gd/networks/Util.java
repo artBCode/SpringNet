@@ -11,9 +11,13 @@ import org.springframework.security.web.util.matcher.IpAddressMatcher;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Util {
     private static final Logger logger = LoggerFactory.getLogger(Util.class);
+    static final Pattern IPV_4_6_NETWORK_SCREENING_PATTERN = Pattern.compile("([\\da-fA-F:.]+)/(\\d{1,3})");
+
 
     private Util() {
         throw new UnsupportedOperationException("no constructor for you");
@@ -32,7 +36,7 @@ public class Util {
 
     }
 
-    public static byte[] mapToNetworkToBytes(String potentialIp, String potentialMask) {
+    public static byte[] mapNetworkToBytes(String potentialIp, String potentialMask) {
         if (Strings.isBlank(potentialIp) || Strings.isBlank(potentialMask)) {
             return null;
         }
@@ -82,6 +86,16 @@ public class Util {
             logger.warn("cannot reconstruct the ip from {}", ipMask, e);
             return null;
         }
+    }
+
+    public static boolean isValidIpAndMask(String ipMask){
+        Matcher matcher = IPV_4_6_NETWORK_SCREENING_PATTERN.matcher(ipMask);
+        if(!matcher.matches()){
+            return false;
+        }
+        // TODO make this check less expensive
+        return mapNetworkToBytes(matcher.group(1), matcher.group(2)) != null;
+
     }
 
     public static boolean belongsToNet(String ip, String subnet) {

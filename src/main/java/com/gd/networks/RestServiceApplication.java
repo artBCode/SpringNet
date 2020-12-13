@@ -7,12 +7,12 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication(scanBasePackages={
         "com.gd.networks", "com.gd.sql"})
-//@ComponentScan({"com.delivery.request"})
 @EntityScan("com.gd.sql")
 @EnableJpaRepositories("com.gd.sql")
 public class RestServiceApplication {
 
     public static void main(String[] args) {
+
         SpringApplication.run(RestServiceApplication.class, args);
     }
 
