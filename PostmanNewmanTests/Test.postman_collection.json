@@ -1,0 +1,288 @@
+{
+	"info": {
+		"_postman_id": "7f9c4ec4-a47e-4382-a3fa-89c4478e60d5",
+		"name": "Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "insertNetworks",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "535f61e5-b0cc-44d3-b657-44937885e693",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"Berlin\": {\n        \"BER-1\": {\n            \"security_level\": 1,\n            \"networks\": {\n                \"192.168.0.0/24\": [\n                    {\n                        \"address\": \"255.255.255.0\",\n                        \"available\": true,\n                        \"last_used\": \"30/01/20 17:00:00\"\n                    },\n                    {\n                        \"address\": \"192.168..0.3\",\n                        \"available\": true,\n                        \"last_used\": \"30/01/20 17:00:00\"\n                    },\n                    {\n                        \"address\": \"192.168.0\",\n                        \"available\": false,\n                        \"last_used\": \"30/01/20 17:00:00\"\n                    },\n                    {\n                        \"address\": \"192.168.0.288\",\n                        \"available\": false,\n                        \"last_used\": \"30/01/20 17:00:00\"\n                    },\n                    {\n                        \"address\": \"invalid\",\n                        \"available\": true,\n                        \"last_used\": \"30/01/20 17:00:00\"\n                    },\n                    {\n                        \"address\": \"192.168.0.1\",\n                        \"available\": false,\n                        \"last_used\": \"30/01/20 16:00:00\"\n                    },\n                    {\n                        \"address\": \"192.168.0.4\",\n                        \"available\": true,\n                        \"last_used\": \"30/01/20 17:00:00\"\n                    },\n                    {\n                        \"address\": \"192.168.0.2\",\n                        \"available\": false,\n                        \"last_used\": \"30/01/20 17:00:00\"\n                    },\n                    {\n                        \"address\": \"192.168.0.3\",\n                        \"available\": true,\n                        \"last_used\": \"30/01/20 17:00:00\"\n                    },\n                    {\n                        \"address\": \"192.168.1.1\",\n                        \"available\": true,\n                        \"last_used\": \"30/01/20 17:00:00\"\n                    }\n                ],\n                \"10.0.8.0/22\": [\n                    {\n                        \"address\": \"10.0.11.254\",\n                        \"available\": true,\n                        \"last_used\": \"30/01/20 17:00:00\"\n                    },\n                    {\n                        \"address\": \"10.0.8.1\",\n                        \"available\": false,\n                        \"last_used\": \"30/01/20 16:00:00\"\n                    },\n                    {\n                        \"address\": \"10.0.8.0\",\n                        \"available\": false,\n                        \"last_used\": \"30/01/20 16:00:00\"\n                    },\n                    {\n                        \"address\": \"10.0.12.1\",\n                        \"available\": true,\n                        \"last_used\": \"30/01/20 17:00:00\"\n                    },\n                    {\n                        \"address\": \"10.0.10.a\",\n                        \"available\": false,\n                        \"last_used\": \"30/01/20 17:00:00\"\n                    }\n                ]\n            }\n        },\n        \"BER-203\": {\n            \"security_level\": 3,\n            \"networks\": {\n                \"192.168.10.0/24\": [\n                    {\n                        \"address\": \"192.168.10.8\",\n                        \"available\": true,\n                        \"last_used\": \"30/01/20 17:00:00\"\n                    },\n                    {\n                        \"address\": \"192.168.10.5\",\n                        \"available\": false,\n                        \"last_used\": \"30/01/20 17:00:00\"\n                    },\n                    {\n                        \"address\": \"192.168.10.6\",\n                        \"available\": false,\n                        \"last_used\": \"30/01/20 17:00:00\"\n                    },\n                    {\n                        \"address\": \"192.168.0.7\",\n                        \"available\": true,\n                        \"last_used\": \"30/01/20 17:00:00\"\n                    }\n                ],\n                \"192.168.11.0/24\": [\n                    {\n                        \"address\": \"192.168.11.1\",\n                        \"available\": true,\n                        \"last_used\": \"30/01/20 17:00:00\"\n                    },\n                    {\n                        \"address\": \"192.168.2.1\",\n                        \"available\": false,\n                        \"last_used\": \"30/01/20 17:00:00\"\n                    },\n                    {\n                        \"address\": \"192.168.11.522\",\n                        \"available\": false,\n                        \"last_used\": \"30/01/20 17:00:00\"\n                    }\n                ]\n            }\n        },\n        \"BER-4000\": {\n            \"security_level\": 3,\n            \"networks\": {\n                \"192.168.100.0/24\": [\n                    {\n                        \"address\": \"192.168.100.1\",\n                        \"available\": true,\n                        \"last_used\": \"30/01/20 17:00:00\"\n                    }\n                ]\n            }\n        },\n        \"TEST-1\": {\n            \"security_level\": 3,\n            \"networks\": {\n                \"192.168.200.0/24\": [\n                    {\n                        \"address\": \"192.168.200.8\",\n                        \"available\": true,\n                        \"last_used\": \"30/01/20 17:00:00\"\n                    }\n                ]\n            }\n        }\n    },\n    \"Paris\": {\n        \"PAR-1\": {\n            \"security_level\": 5,\n            \"networks\": {\n                \"192.168.203.0/24\": [\n                    {\n                        \"address\": \"192.168.203.20\",\n                        \"available\": true,\n                        \"last_used\": \"30/01/20 17:00:00\"\n                    },\n                    {\n                        \"address\": \"192.168.203.21\",\n                        \"available\": false,\n                        \"last_used\": \"30/01/20 17:00:00\"\n                    },\n                    {\n                        \"address\": \"192.168.203.19\",\n                        \"available\": false,\n                        \"last_used\": \"30/01/20 17:00:00\"\n                    },\n                    {\n                        \"address\": \"192.168.0.0\",\n                        \"available\": true,\n                        \"last_used\": \"30/01/20 17:00:00\"\n                    }\n                ]\n            }\n        },\n        \"XPAR-2\": {\n            \"security_level\": 0,\n            \"networks\": {\n                \"2001:0db8:0000:0000:0000:0000:0000:0000/64\": [\n                    {\n                        \"address\": \"2001:0db8:0000:0000:0000:8a2e:0370:7334\",\n                        \"available\": true,\n                        \"last_used\": \"30/12/20 17:00:00\"\n                    }\n                ]\n                }\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/insert-network",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"insert-network"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insertNetworks invalid json",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d0d379aa-5883-4a32-932d-3c858c9c873f",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "bad json",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/insert-network",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"insert-network"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getNetworksByIp v4",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5a1c9a32-a751-4667-98a7-d0b4cc444df3",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"let jsonData = pm.response.json()",
+							"",
+							"pm.test('Check the correct networks is found', () => {",
+							"    pm.expect(jsonData).to.be.an(\"array\");",
+							"    pm.expect(jsonData.length).to.equal(1);",
+							"    pm.expect(jsonData[0]).to.equal(\"192.168.203.0/24\");",
+							"",
+							"    })",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/get-networks-by-ip?IP=192.168.203.19",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"get-networks-by-ip"
+					],
+					"query": [
+						{
+							"key": "IP",
+							"value": "192.168.203.19"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getNetworksByIp v4 non existing net",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "276a3159-5758-49f6-b454-8b4f308b9884",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"let jsonData = pm.response.json()",
+							"",
+							"pm.test('Check the correct networks is found', () => {",
+							"    pm.expect(jsonData).to.be.an(\"array\");",
+							"    pm.expect(jsonData.length).to.equal(0);",
+							"",
+							"    })",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/get-networks-by-ip?IP=1.1.1.1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"get-networks-by-ip"
+					],
+					"query": [
+						{
+							"key": "IP",
+							"value": "1.1.1.1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getNetworksByIp v4 badIp",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "55fe580f-33a0-4a51-8dae-8d6358fc265b",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.not.have.status(200);",
+							"});",
+							"",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/get-networks-by-ip?IP=badIp",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"get-networks-by-ip"
+					],
+					"query": [
+						{
+							"key": "IP",
+							"value": "badIp"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getNetworksByIp v6",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d78fb34c-9224-418b-b547-de93a9a2457c",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"let jsonData = pm.response.json()",
+							"",
+							"pm.test('Check the correct networks is found', () => {",
+							"    pm.expect(jsonData).to.be.an(\"array\");",
+							"    pm.expect(jsonData.length).to.equal(1);",
+							"    pm.expect(jsonData[0]).to.equal(\"2001:db8:0:0:0:0:0:0/64\");",
+							"",
+							"    })",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/get-networks-by-ip?IP=2001:0db8:0000:0000:0000:8a2e:0370:7334",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"get-networks-by-ip"
+					],
+					"query": [
+						{
+							"key": "IP",
+							"value": "2001:0db8:0000:0000:0000:8a2e:0370:7334"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
