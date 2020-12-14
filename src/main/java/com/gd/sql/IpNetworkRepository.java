@@ -10,6 +10,10 @@ import java.util.Collection;
 // CRUD refers Create, Read, Update, Delete
 
 public interface IpNetworkRepository extends CrudRepository<IpNetwork, IpNetworkKey> {
+    /**
+     * @param s the binary ip
+     * @return the binary net Ip and masks
+     */
     @Query(value = "SELECT network FROM ip_network WHERE ip = ?1",
             nativeQuery = true)
     Collection<byte[]> findNetworksIpBelongsTo(byte[] s);

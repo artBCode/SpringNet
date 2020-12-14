@@ -48,6 +48,22 @@ public class IpNetwork {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof IpNetwork)) return false;
+        IpNetwork ipNetwork = (IpNetwork) o;
+        return Arrays.equals(getIp(), ipNetwork.getIp()) &&
+                Arrays.equals(getNetwork(), ipNetwork.getNetwork());
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Arrays.hashCode(getIp());
+        result = 31 * result + Arrays.hashCode(getNetwork());
+        return result;
+    }
+
+    @Override
     public String toString() {
         return "IpNetwork{" +
                 "ip=" + Arrays.toString(ip) +

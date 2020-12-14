@@ -99,6 +99,9 @@ public class Util {
     }
 
     public static boolean belongsToNet(String ip, String subnet) {
+        if (Strings.isBlank(ip) || Strings.isBlank(subnet)) {
+            return false;
+        }
         IpAddressMatcher ipAddressMatcher = new IpAddressMatcher(subnet);
         return ipAddressMatcher.matches(ip);
     }

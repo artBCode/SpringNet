@@ -31,4 +31,12 @@ public class GetNetworksByIpProcessor {
                 .map(pair -> pair.getLeft() + "/" + pair.getRight())
                 .collect(Collectors.toList());
     }
+
+    public IpNetworkRepository getIpNetworkRepository() {
+        return ipNetworkRepository;
+    }
+
+    public void setIpNetworkRepository(IpNetworkRepository ipNetworkRepository) {
+        this.ipNetworkRepository = ipNetworkRepository;
+    }
 }
