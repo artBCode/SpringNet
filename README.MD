@@ -1,4 +1,4 @@
-#### How to build:
+### How to build:
 
 If the mysql container is NOT running [the integration tests require a db]:
 
@@ -9,7 +9,8 @@ If the mysql container is running:
 `mvn clean install`
 
 
-##### How to run the web app
+
+### How to run the web app
 
 1. Run the mysql container. The port 3306 must not be in use on the machine you run this on.
 
@@ -19,7 +20,8 @@ If the mysql container is running:
 
 `./mvnw spring-boot:run` 
 
-#### How to use the app
+
+### How to use the app
 
 - Insert new networks using the 
 
@@ -37,26 +39,25 @@ curl --location --request POST 'http://localhost:8080/insert-network' \
 
 
 
-#### Postman + System tests 
+### Postman + System tests 
 A postman collection that contains end to end tests is provided in [PostmanNewmanTests](PostmanNewmanTests)
 
 
-#### Assumptions
-Not all the things were clear when I started to design and implement the app so. I was not able to get answers for 
-my questions and, unfortunately I had to make some assumptions. 
+### Assumptions
 
 Requirements and assumptions are in [Requirements/Questions&Assumptions.txt](Requirements/Questions&Assumptions.txt)
 
 
-#### Improvements / TODOs
+### Improvements / TODOs
 
-- Use an in memory db for integration tests. This way the docker container with the db is not be needed anymore 
+- Build a docker container with the app. Prepare docker compose to start both DB and App container. Ensure the DB data is kept in a separated docker volume
+- Make the `NetworkControllerTests.java` integration tests use an in-memory db. This way the mysql docker container is not going to be needed anymore 
 when building with tests: `mvn clean install`
 - Improve the REST response status and provide extra messages on errors.
 - Improve test coverage
 
 
-#### Examples
+### Examples
 
 ``curl --location --request POST 'http://localhost:8080/insert-network' \
   --header 'Content-Type: application/json' \
